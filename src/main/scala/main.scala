@@ -30,9 +30,11 @@ class Main extends PApplet {
       rec(RungeKutta.integrate({(x:Double,y:Double)=> {x*(param._2-y)}},{(x:Double,y:Double)=> {y*(-param._1+x)}},
                                                                                       init._1,init._2,accuracy,cycle))
     }
-    for(i <- Range(5,95+1,5)) plot((i,i))
+    for(i <- Range(5,param._1.asInstanceOf[Int]-1,5)) plot((i,i*param._2/param._1))
     stroke(param._1.asInstanceOf[Float],100,100)
     point(param._1.asInstanceOf[Float],height-param._2.asInstanceOf[Float])
+    plot((1,1*param._2/param._1))
+    saveFrame("b.png")
   }
 }
 
